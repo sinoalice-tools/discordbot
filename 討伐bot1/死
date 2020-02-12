@@ -1,0 +1,102 @@
+// Response for Uptime Robot
+const http = require('http');
+http.createServer(function(request, response)
+{
+	response.writeHead(200, {'Content-Type': 'text/plain'});
+	response.end('Discord bot is active now \n');
+}).listen(3000);
+
+// Discord bot implements
+const discord = require('discord.js');
+const client = new discord.Client();
+
+client.on('ready', message =>
+{
+	console.log('bot is ready!');
+});
+
+/* 発狂しているので一時ストップ
+全部の発言に返信するクソ仕様。討伐ボスの名前が呼ばれた時だけ返信するように変える
+
+client.on('message', message =>{
+  // 自己言及を無視
+  if(message.author.bot){
+        return;
+   }
+
+  // 討伐情報
+  let toubatsu = boss(message.content);
+  if (toubatsu != {})
+  {
+    let reply_text = boss(message.content);
+    message.reply(reply_text);
+    return;
+  }
+});
+
+if(process.env.DISCORD_BOT_TOKEN === undefined)
+{
+	console.log('please set ENV: DISCORD_BOT_TOKEN');
+	process.exit(0);
+}
+
+function boss(bossname){
+  let info = {};
+  if(bossname === 'ミドガルズオルム'){
+    info = 'ミドガルズオルム討伐情報\n' +
+      'キャラクターはスノウ\n' +
+      '防具はスネーク種特攻の淑女シリーズが有効です'
+  }
+  if(bossname === 'ファフニール'){
+    info = 'ファフニール討伐情報\n' +
+      'キャラクターは人魚姫\n' +
+      '防具は水属性ドラゴン特攻の海底シリーズが有効です' +
+      '誰かのバフが-4以下になると発狂します。'
+  }
+    if(bossname === 'オーガ'){
+    info = 'オーガ討伐情報\n' +
+      'キャラクターはアリス。魔法推奨。\n' +
+      '防具は火属性オーク特攻の黒石シリーズが有効です\n' +
+      '初手で1ゲージ削れないとバフリセされるので一気に決めましょう。'
+  }
+    if(bossname === 'フェンリル'){
+    info = 'フェンリル討伐情報。\n' +
+      'キャラクターはドロシー。魔法推奨。\n' +
+      '防具は風属性ビースト特効の黄金シリーズが有効です\n' +
+      '3ゲージ目は魔法しか効かないので弓推奨です。'
+  }
+    if(bossname === 'グリーフスパイダー'){
+    info = 'グリーフスパイダー討伐情報\n' +
+      'キャラクターはいばら姫\n' +
+      '防具は水属性スパイダー特攻の喪失シリーズが有効です\n' +
+      '弟は魔法、兄は物理で攻めます。片方が死ぬともう片方が発狂します。'
+  }
+    if(bossname === 'ジズ'){
+    info = 'ジズ討伐情報\n' +
+      'キャラクターは赤ずきん\n' +
+      '防具はバード特攻の悲哀シリーズ、お伴のドラゴンには白夜シリーズが有効です\n' +
+      '比翼連理ですの。'
+  }
+    if(bossname === 'クリスタルウィスプ'){
+    info = 'クリスタルウィスプ討伐情報\n' +
+      'キャラクターはグレーテル\n' +
+      '防具は火属性ウィスプ特効の、砂岩シリーズが有効です\n' +
+      '2ゲージ目にいきなり固くなるのでカゲウチ系は初手で使い切った方が吉？'
+  }
+    if(bossname === 'ラフレシア'){
+    info = 'ラフレシア討伐情報\n' +
+      'キャラクターはかぐや姫。物理推奨。\n' +
+      '防具は風属性プラント特効の、艶翅シリーズが有効です\n' +
+      '火力があるなら、親→子B→子A。ないなら子B→親→子Aの順番に倒します\n'
+  }
+    if(bossname === 'スルト'){
+    info = 'スルト討伐情報\n' +
+      'キャラクターはシンデレラ。魔法推奨。\n' +
+      '防具はゴーレム特効の、避役シリーズが有効です\n' +
+      'さっくり行けるかさっくり逝けるかのどちらかです。'
+  }
+
+   return info; 
+}
+*/
+client.login( process.env.DISCORD_BOT_TOKEN );
