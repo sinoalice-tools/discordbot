@@ -417,5 +417,4 @@ function boss(bossname){
   return info;
 }
 
-//client.login( process.env.DISCORD_BOT_TOKEN );
-client.login( "NzI2NTE2MzY5MDM3ODUyODAz.XvefQA.lss6l59_2sUhvE3iCoFfHUQ0dWQ" );
+client.login( process.env.DISCORD_BOT_TOKEN );
